@@ -1,6 +1,6 @@
 <template>
     <li class="list-group-item" @click="onClick()">
-        <i class="glyphicon"></i>
+        <i class="glyphicon" :class="[isFavorite ? 'glyphicon-star' : 'glyphicon-star-empty']"></i>
         <div class="media">
             <div class="media-left" v-if="serieDetails.image">
                 <img class="media-object" :src="serieDetails.image.medium" />
@@ -20,9 +20,19 @@ export default {
     props: [
         'serieDetails'
     ],
+    data(){
+        return {
+            favoritesService
+        }
+    },
     methods: {
         onClick () {
             this.$emit('clicked', this.serieDetails)
+        }
+    },
+    computed:{
+        isFavorite(){
+            return this.favoritesService.isFavorite(this.serieDetails)
         }
     }
 }
