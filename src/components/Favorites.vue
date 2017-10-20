@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Favoris</h1>
     <ul class="list-group">
-      <serie v-for="favorite in favorites" :key="favorite.id" :serieDetails="favorite"></serie>
+      <serie v-for="favorite in favorites" :key="favorite.id" :serie="favorite"></serie>
     </ul>
   </div>
 </template>

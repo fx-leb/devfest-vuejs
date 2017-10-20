@@ -10,6 +10,7 @@
 <script>
 import Serie from '@/components/Serie.vue'
 import seriesService from '@/services/series.service'
+import favoriteService from '@/services/favorites.service'
 
 export default {
     components: {
@@ -21,8 +22,12 @@ export default {
     mounted () {
         seriesService.getSeries().then(response => this.series = response.map(item => item.show))
     }, methods:{
-        ajouteSupprimeSerie() {
-            appel du service;
+        ajouteSupprimeSerie(serie) {
+            if(favoriteService.isFavorite(serie)){
+                favoriteService.removeFavorite(serie);
+            } else {
+                favoriteService.addFavorite(serie);
+            }
         }
     }
 }

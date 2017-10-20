@@ -1,12 +1,12 @@
 <template>
-    <li class="list-group-item">
+    <li class="list-group-item" @click="onClick()">
         <div class="media">
-            <div class="media-left" v-if="serieDetails.image">
-                <img class="media-object" :src="serieDetails.image.medium" />
+            <div class="media-left" v-if="serie.image">
+                <img class="media-object" :src="serie.image.medium" />
             </div>
             <div class="media-body">
-                <h4 class="media-heading">{{ serieDetails.name }}</h4>
-                <div v-html="serieDetails.summary"></div>
+                <h4 class="media-heading">{{ serie.name }}</h4>
+                <div v-html="serie.summary"></div>
             </div>
         </div>
     </li>
@@ -15,11 +15,12 @@
 <script>
 export default {
     props: [
-        'serieDetails'
+        'serie'
     ],
     methods: {
         onClick(){
-            this.$emit('selectionneSerie', data)
+            console.log(this.serie)
+            this.$emit('selectionneSerie', this.serie)
         }
     }
 }
