@@ -16,7 +16,12 @@
 export default {
     props: [
         'serieDetails'
-    ]
+    ],
+    methods: {
+        onClick(){
+            this.$emit('selectionneSerie', data)
+        }
+    }
 }
 </script>
 
