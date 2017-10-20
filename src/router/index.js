@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Favorites from '@/components/Favorites'
+import Serie from '@/components/Serie'
 
 Vue.use(Router)
 
