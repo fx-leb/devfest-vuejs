@@ -2,10 +2,7 @@
     <div>
         <h1>Liste des séries</h1> 
         <ul>
-            <serie></serie>
-            <serie></serie>
-            <serie></serie>
-            <serie></serie>
+            <serie v-for="serie in series" :serie="serie"></serie>
         </ul>
     </div>
 </template>
@@ -18,8 +15,11 @@ export default {
     components: {
         Serie
     },
+    data(){
+        return {series: []}
+    },
     mounted () {
-        seriesService.getSeries().then(res => console.log(res.map(item => item.show)))
+        seriesService.getSeries().then(response => this.series = response.map(item => item.show))
     }
 }
 </script>

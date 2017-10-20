@@ -2,11 +2,11 @@
     <li class="list-group-item">
         <div class="media">
             <div class="media-left">
-                <img class="media-object" :src="image.medium" />
+                <img v-if="serie.image.medium" class="media-object" :src="serie.image.medium" />
             </div>
             <div class="media-body">
-                <h4 class="media-heading">{{ name }}</h4>
-                <div>{{ summary }}</div>
+                <h4 class="media-heading">{{ serie.name }}</h4>
+                <div>{{ serie.summary }}</div>
             </div>
         </div>
     </li>
@@ -22,7 +22,10 @@ export default {
                 medium: 'static/logo.png'
             }
         }
-    }
+    },
+    props:[
+        "serie"
+    ]
 }
 </script>
 
