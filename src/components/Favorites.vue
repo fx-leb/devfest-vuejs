@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Liste des séries</h1> 
+        <h1>Favoris</h1> 
     </div>
 </template>
 
