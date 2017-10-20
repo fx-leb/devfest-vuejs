@@ -1,20 +1,20 @@
 <template>
     <div>
-        <h1>{{name}}</h1> 
-        </div>{{summary}}</div>
-        <img v-bind="image.medium"/>
+        <h1>Série</h1> 
+        <div>{{name}}</div>
+        <div>{{summary}}</div>
+       <img v-bind:src="image.medium" />
     </div>
 </template>
 
 <script>
 export default {
     data() {
-        return 
-        {
+        return {
             name: 'NightClazz',
             summary: 'Wha an amazing codelab...',
             image: {medium:'static/logo.png'}
-        };
+        }
     }
 }
 </script>
