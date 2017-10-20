@@ -12,11 +12,16 @@
 
 <script>
 import Serie from '@/components/Serie.vue'
+import api from '@services/series.service.js'
 
 export default {
     components: {
-        Serie
-		}
+        Serie,
+        },
+      mounted(){
+          api.getSeries().then(series => series.map(serie => console.log(serie.show)))
+      }  
+        
 }
 </script>
 
