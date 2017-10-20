@@ -2,9 +2,10 @@
     <div>
         <h1>Liste des séries</h1> 
         <div id="search">
+            <input v-model="search" type="text"/>
         </div>
         <ul>
-            <serie v-for="serie in series" :key="serie.id" :serie-details="serie" @clicked="toggleFavorites($event)"></serie>
+            <serie v-for="serie in seriesFiltrees" :key="serie.id" :serie-details="serie" @clicked="toggleFavorites($event)"></serie>
         </ul>
     </div>
 </template>
@@ -20,7 +21,8 @@ export default {
     },
     data () { 
         return { 
-            series: [] 
+            series: [],
+            search: ''
         } 
     }, 
     mounted () {
@@ -29,6 +31,11 @@ export default {
     methods: {
         toggleFavorites (serie) {
             favoritesService.isFavorite(serie) ? favoritesService.removeFavorite(serie) : favoritesService.addFavorite(serie) 
+        }
+    },
+    computed:{
+        seriesFiltrees(){
+            return this.search === '' ? this.series : this.series.filter(serie => serie.name.toLowerCase().includes(this.search.toLowerCase()))
         }
     }
 }
